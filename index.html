@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="کافه ایرانیان - پلتفرم جامع ارتباطی و خدمات دیجیتال">
+    <meta name="keywords" content="کافه ایرانیان, شبکه‌های اجتماعی, ارز دیجیتال, پشتیبانی">
+    <meta name="author" content="CafePersians">
+    <meta property="og:title" content="کافه ایرانیان">
+    <meta property="og:description" content="پلتفرم جامع ارتباطی و خدمات دیجیتال">
+    <meta property="og:image" content="https://techforall1373.github.io/Cafepersians.io/logo.png">
+    <meta property="og:url" content="https://techforall1373.github.io/Cafepersians.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>کافه ایرانیان | پلتفرم جامع ارتباطی</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #bb86fc;
+            --secondary: #03dac6;
+            --surface: #1e1e1e;
+            --background: #000000;
+            --error: #cf6679;
+            --on-primary: #000000;
+            --on-secondary: #000000;
+            --on-surface: #ffffff;
+            --on-background: #ffffff;
+            --on-error: #000000;
+            --outline: #3e3e3e;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: var(--on-background);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: var(--surface);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px var(--shadow);
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(187, 134, 252, 0.4);
+        }
+
+        .logo::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        .logo i {
+            font-size: 60px;
+            color: var(--on-primary);
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 15px 0 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: var(--on-surface);
+            opacity: 0.7;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            background: rgba(30, 30, 30, 0.5);
+            border-radius: 16px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--outline);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            font-size: 20px;
+        }
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--on-surface);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .link-item:hover::before {
+            width: 100%;
+        }
+
+        .link-item:hover {
+            color: var(--on-primary);
+            transform: translateY(-3px);
+        }
+
+        .link-item i {
+            font-size: 18px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .link-text {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .crypto-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .crypto-box:hover {
+            background: rgba(0, 0, 0, 0.5);
+            transform: translateX(5px);
+        }
+
+        .crypto-type {
+            font-weight: 600;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .crypto-address {
+            font-family: monospace;
+            font-size: 12px;
+            color: var(--on-surface);
+            opacity: 0.8;
+            max-width: 60%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .copy-btn {
+            background: var(--primary);
+            color: var(--on-primary);
+            border: none;
+            border-radius: 8px;
+            padding: 6px 10px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: var(--secondary);
+        }
+
+        .copy-btn.copied {
+            background: var(--secondary);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(0, 0, 0, 0.5);
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--on-primary);
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-label {
+            font-size: 12px;
+            color: var(--on-surface);
+            opacity: 0.7;
+        }
+
+        .contact-value {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--on-surface);
+        }
+
+        .coffee-btn {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .coffee-btn img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .coffee-btn:hover img {
+            transform: scale(1.05);
+        }
+
+        .instagram-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .instagram-item {
+            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+            border-radius: 20px;
+            padding: 8px 15px;
+            font-size: 13px;
+            font-weight: 500;
+            color: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .instagram-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(131, 58, 180, 0.4);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--outline);
+            font-size: 14px;
+            color: var(--on-surface);
+            opacity: 0.7;
+        }
+
+        .footer i {
+            color: var(--error);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--primary);
+            color: var(--on-primary);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 500;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .link-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .crypto-address {
+                max-width: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-coffee"></i>
+            </div>
+            <h1 class="title">کافه ایرانیان</h1>
+            <p class="subtitle">پلتفرم جامع ارتباطی و خدمات دیجیتال</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-link"></i> لینک‌های اصلی</h2>
+            <div class="link-grid">
+                <a href="https://whatsapp.com/channel/0029VazXKZPL2ATzkbqfge2G" target="_blank" class="link-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span class="link-text">واتساپ ۱</span>
+                </a>
+                <a href="https://whatsapp.com/channel/0029VbBA6O26RGJCCAPcpM3H" target="_blank" class="link-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span class="link-text">واتساپ ۲</span>
+                </a>
+                <a href="https://techforall1373.github.io/Cafepersians.io/" target="_blank" class="link-item">
+                    <i class="fas fa-globe"></i>
+                    <span class="link-text">وبسایت</span>
+                </a>
+                <a href="https://takl.ink/Cafepersians.io/" target="_blank" class="link-item">
+                    <i class="fas fa-link"></i>
+                    <span class="link-text">Takl</span>
+                </a>
+                <a href="https://www.coffeete.ir/Cafepersians" target="_blank" class="link-item">
+                    <i class="fas fa-coffee"></i>
+                    <span class="link-text">Coffee</span>
+                </a>
+                <a href="https://hamibash.com/cafepersians" target="_blank" class="link-item">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <span class="link-text">حمایت</span>
+                </a>
+                <a href="https://zarinp.al/cafepersians" target="_blank" class="link-item">
+                    <i class="fas fa-credit-card"></i>
+                    <span class="link-text">زرین‌پال</span>
+                </a>
+                <a href="https://github.com/TechForAll1373" target="_blank" class="link-item">
+                    <i class="fab fa-github"></i>
+                    <span class="link-text">گیت‌هاب</span>
+                </a>
+                <a href="https://cafepersians.blogix.ir" target="_blank" class="link-item">
+                    <i class="fas fa-blog"></i>
+                    <span class="link-text">وبلاگ</span>
+                </a>
+                <a href="https://supportme.blogix.ir" target="_blank" class="link-item">
+                    <i class="fas fa-hands-helping"></i>
+                    <span class="link-text">پشتیبانی</span>
+                </a>
+                <a href="https://t.me/cafepersiansio" target="_blank" class="link-item">
+                    <i class="fab fa-telegram"></i>
+                    <span class="link-text">تلگرام</span>
+                </a>
+                <a href="https://linktr.ee/telegrampower" target="_blank" class="link-item">
+                    <i class="fas fa-tree"></i>
+                    <span class="link-text">Linktree</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-coins"></i> حمایت مالی (ارز دیجیتال)</h2>
+            <div class="crypto-box">
+                <div class="crypto-type">
+                    <i class="fab fa-bitcoin"></i>
+                    <span>TRX</span>
+                </div>
+                <div class="crypto-address">TPiDbYoBH3rFJfAgV3QL93FLNg4mM5DpVi</div>
+                <button class="copy-btn" onclick="copyToClipboard('TPiDbYoBH3rFJfAgV3QL93FLNg4mM5DpVi', this)">کپی</button>
+            </div>
+            <div class="crypto-box">
+                <div class="crypto-type">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>USDC</span>
+                </div>
+                <div class="crypto-address">TPiDbYoBH3rFJfAgV3QL93FLNg4mM5DpVi</div>
+                <button class="copy-btn" onclick="copyToClipboard('TPiDbYoBH3rFJfAgV3QL93FLNg4mM5DpVi', this)">کپی</button>
+            </div>
+            <div class="crypto-box">
+                <div class="crypto-type">
+                    <i class="fab fa-bitcoin"></i>
+                    <span>TRX</span>
+                </div>
+                <div class="crypto-address">TRYkquczj9S8b6udMPkhGyLCLMZSKtejgG</div>
+                <button class="copy-btn" onclick="copyToClipboard('TRYkquczj9S8b6udMPkhGyLCLMZSKtejgG', this)">کپی</button>
+            </div>
+            <div class="crypto-box">
+                <div class="crypto-type">
+                    <i class="fab fa-ethereum"></i>
+                    <span>AVAX</span>
+                </div>
+                <div class="crypto-address">0x817aF430F901D1658A967467ddCA929FFC03b42f</div>
+                <button class="copy-btn" onclick="copyToClipboard('0x817aF430F901D1658A967467ddCA929FFC03b42f', this)">کپی</button>
+            </div>
+            <div class="crypto-box">
+                <div class="crypto-type">
+                    <i class="fas fa-coins"></i>
+                    <span>RVN</span>
+                </div>
+                <div class="crypto-address">RWjrY8UjeuTqjppRVaXNhzSA8yB1r7187R</div>
+                <button class="copy-btn" onclick="copyToClipboard('RWjrY8UjeuTqjppRVaXNhzSA8yB1r7187R', this)">کپی</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-comments"></i> شبکه‌های اجتماعی ایرانی</h2>
+            <div class="link-grid">
+                <a href="https://ble.ir/CafePersians2" target="_blank" class="link-item">
+                    <i class="fas fa-comment"></i>
+                    <span class="link-text">بله</span>
+                </a>
+                <a href="https://eitaa.com/WhatsCafe" target="_blank" class="link-item">
+                    <i class="fas fa-comment-dots"></i>
+                    <span class="link-text">ایتا</span>
+                </a>
+                <a href="https://virasty.com/CafePersians1" target="_blank" class="link-item">
+                    <i class="fas fa-share-alt"></i>
+                    <span class="link-text">virasty</span>
+                </a>
+                <a href="https://igap.net/join/svkFCAFirEqNnGkiHDpJiOzIs" target="_blank" class="link-item">
+                    <i class="fas fa-comment"></i>
+                    <span class="link-text">IGAP</span>
+                </a>
+                <a href="https://wisgoon.com/persiancafe" target="_blank" class="link-item">
+                    <i class="fas fa-video"></i>
+                    <span class="link-text">Wisgoon 1</span>
+                </a>
+                <a href="https://wisgoon.com/persiancafe2" target="_blank" class="link-item">
+                    <i class="fas fa-video"></i>
+                    <span class="link-text">Wisgoon 2</span>
+                </a>
+                <a href="https://rubika.ir/pedaram1348" target="_blank" class="link-item">
+                    <i class="fas fa-share"></i>
+                    <span class="link-text">روبیکا 1</span>
+                </a>
+                <a href="https://rubika.ir/farabi_1" target="_blank" class="link-item">
+                    <i class="fas fa-share"></i>
+                    <span class="link-text">روبیکا 2</span>
+                </a>
+                <a href="https://rubika.ir/charisman_1" target="_blank" class="link-item">
+                    <i class="fas fa-share"></i>
+                    <span class="link-text">روبیکا 3</span>
+                </a>
+                <a href="https://rubika.ir/Caffeine95" target="_blank" class="link-item">
+                    <i class="fas fa-share"></i>
+                    <span class="link-text">روبیکا 4</span>
+                </a>
+                <a href="https://splus.ir/Cafepersian1" target="_blank" class="link-item">
+                    <i class="fas fa-comment"></i>
+                    <span class="link-text">سروش پلاس</span>
+                </a>
+                <a href="http://ba-ham.com/PersianCafe/" target="_blank" class="link-item">
+                    <i class="fas fa-users"></i>
+                    <span class="link-text">باهم</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-envelope"></i> تماس با ما</h2>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-label">ایمیل اصلی</div>
+                    <div class="contact-value">prezatabar@yahoo.com</div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-label">ایمیل پشتیبانی</div>
+                    <div class="contact-value">pouryaairdrop@gmail.com</div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-label">ایمیل رسمی</div>
+                    <div class="contact-value">cafepersians@gmail.com</div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-label">ایمیل امن</div>
+                    <div class="contact-value">persianwolf320@proton.me</div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-label">ایمیل جایگزین</div>
+                    <div class="contact-value">persianwolf320@gmail.com</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title"><i class="fab fa-instagram"></i> اینستاگرام</h2>
+            <div class="instagram-list">
+                <div class="instagram-item">cafepersians_1</div>
+                <div class="instagram-item">cafepersians_2</div>
+                <div class="instagram-item">cafepersians_3</div>
+                <div class="instagram-item">cafepersians_4</div>
+                <div class="instagram-item">cafepersians_5</div>
+                <div class="instagram-item">cafepersians_6</div>
+                <div class="instagram-item">cafepersians_7</div>
+                <div class="instagram-item">cafepersians_8</div>
+                <div class="instagram-item">cafepersians_8_</div>
+                <div class="instagram-item">cafepersia_1</div>
+                <div class="instagram-item">cafepersia_2</div>
+                <div class="instagram-item">cafepersia_3</div>
+                <div class="instagram-item">superior_future_</div>
+                <div class="instagram-item">investing_in_northern_iran</div>
+                <div class="instagram-item">persiancafe_admin</div>
+                <div class="instagram-item">persians_admin</div>
+                <div class="instagram-item">cafepedarane_1348</div>
+                <div class="instagram-item">cafe_admin_persian</div>
+                <div class="instagram-item">sales_and_purchase_admin</div>
+                <div class="instagram-item">persian_admin_realstate_auto</div>
+                <div class="instagram-item">admin_persian_s</div>
+                <div class="instagram-item">dard_o_dastgiri</div>
+            </div>
+        </div>
+
+        <div class="coffee-btn">
+            <a href="http://www.coffeete.ir/Cafepersians" target="_blank">
+                <img src="http://www.coffeete.ir/images/buttons/lemonchiffon.png" alt="Coffee Support" />
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>ساخته شده با عشق <i class="fas fa-heart"></i> © 2025</p>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">آدرس با موفقیت کپی شد!</div>
+
+    <script>
+        // Copy to clipboard function
+        function copyToClipboard(text, button) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Change button text temporarily
+                const originalText = button.textContent;
+                button.textContent = 'کپی شد!';
+                button.classList.add('copied');
+                
+                // Show toast notification
+                showToast();
+                
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        // Show toast notification
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add parallax effect to logo
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const logo = document.querySelector('.logo');
+            if (logo) {
+                logo.style.transform = `translateY(${scrolled * 0.1}px)`;
+            }
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+
+        // Add click effect to link items
+        document.querySelectorAll('.link-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                this.appendChild(ripple);
+                
+                const x = e.clientX - e.target.offsetLeft;
+                const y = e.clientY - e.target.offsetTop;
+                
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add ripple effect styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.5);
+                transform: scale(0);
+                animation: ripple-animation 0.6s ease-out;
+                pointer-events: none;
+            }
+            
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

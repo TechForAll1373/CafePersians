@@ -1,0 +1,29 @@
+CafePersians/
+│
+├── .github/
+│   ├── CONTRIBUTING.md
+│   ├── CODE_OF_CONDUCT.md
+│   └── ISSUE_TEMPLATE/
+│       ├── bug_report.md
+│       └── feature_request.md
+│
+├── docs/
+│   ├── services.md
+│   ├── contact.md
+│   ├── faq.md
+│   └── roadmap.md
+│
+├── assets/
+│   ├── logo.png
+│   ├── banner.jpg
+│   └── icons/
+│       ├── whatsapp.svg
+│       ├── telegram.svg
+│       └── instagram.svg
+│
+├── .gitignore
+├── README.md
+├── LICENSE
+├── SECURITY.md
+├── SUPPORT.md
+└── CHANGELOG.md
